@@ -1,0 +1,19 @@
+:root {
+    /* Colors -- https://coolors.co/5a7d7c-dadff7-232c33-a0c1d1-b5b2c2 */
+    --clr-primary: #DADFF7;
+    --clr-secondary: #5A7D7C;
+    --clr-background: #232C33;
+    --clr-accent: #A0C1D1;
+    --clr-muted: #B5B2C2;
+
+    /* Sizes */
+    --tiny: 8px;
+    --small: 16px;
+    --medium: 32px;
+    --large: 64px;
+    --big: 128px;
+
+    --small-text: 16px;
+    --medium-text: 24px;
+    --large-text: 32px;
+}
