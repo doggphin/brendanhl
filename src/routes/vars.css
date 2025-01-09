@@ -16,4 +16,8 @@
     --small-text: 16px;
     --medium-text: 24px;
     --large-text: 32px;
+    --huge-text: 48px;
+
+    /* Times */
+    --fast: 0.1s;
 }

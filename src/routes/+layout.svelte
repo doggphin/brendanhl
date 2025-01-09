@@ -11,9 +11,10 @@
         link: string;
     };
     const navbarTabs : NavbarTab[] = [
-        { name: "Projects", link: `/projects` },
-        { name: "About", link:`/about` },
-        { name: "Contact", link:`/contact` },
+        { name: "Projects", link: "/projects" },
+        { name: "Wrong Warp", link: "/wrongwarp" },
+        { name: "About", link: "/about" },
+        { name: "Contact", link: "/contact" },
     ];
 
     interface NavbarMedia {
@@ -37,11 +38,9 @@
         <ul class="navbar-pages">
             {#each navbarTabs as navbarTab}
                 {@const isSelected : Boolean = navbarTab.link == page.url.pathname}
-                <li>
-                    <a class="navbar-page {isSelected ? "navbar-page-selected" : ""}" href={navbarTab.link}>
-                        <span>{navbarTab.name}</span>
-                    </a>     
-                </li>
+                <a class="navbar-page {isSelected ? "navbar-page-selected" : ""}" href={navbarTab.link}>
+                    <span>{navbarTab.name}</span>
+                </a>     
             {/each}
         </ul>
         <ul class="navbar-medias">
@@ -55,6 +54,7 @@
         </ul>
     </nav>
 </div>
+<div class="spacer"></div>
 <div class="body">
     <slot/>
 </div>
@@ -63,11 +63,13 @@
 <style>
     :root {
         background-color: var(--clr-background);
+        --navbar-height: 105px;
     }
 
     .navbar {
         position: fixed;
         inset: 0 0 auto 0;
+        height: var(--navbar-height);
         background-color: var(--clr-secondary);
     }
     .brand {
@@ -81,19 +83,20 @@
         justify-content: space-between;
         height: var(--large);
     }
-
     .navbar-pages {
         display: flex;
         gap: var(--tiny);
         margin: auto auto auto calc(var(--medium) - var(--tiny));
     }
     .navbar-page {
+        transition-duration: var(--fast);
         color: var(--clr-primary);
         text-decoration-line: none;
         padding: var(--tiny);
         border-radius: var(--tiny);
     }
     .navbar-page:hover {
+        transition-duration: var(--fast);
         background-color: var(--clr-muted);
     }
     .navbar-page-selected {
@@ -118,5 +121,10 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    .spacer {
+        width: 100vw;
+        height: var(--navbar-height);
     }
 </style>
