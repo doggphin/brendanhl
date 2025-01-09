@@ -18,6 +18,8 @@
     --large-text: 32px;
     --huge-text: 48px;
 
+    --default-indent: calc(var(--small-text) * 2);
+
     /* Times */
     --fast: 0.1s;
 }

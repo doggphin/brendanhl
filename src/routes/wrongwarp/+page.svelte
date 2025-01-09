@@ -11,7 +11,7 @@
 
 <div class="cardholder">
     {#each cards as card}
-        <Card title={card.title} image={card.image} link={card.link} description={card.description} date={card.date}/>
+        <Card title={card.title} image={card.image} link={`wrongwarp/posts/${card.link}`} description={card.description} date={card.date}/>
     {/each}
 </div>
 

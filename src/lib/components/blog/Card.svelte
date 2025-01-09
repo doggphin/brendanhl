@@ -10,7 +10,7 @@
         <div class="date">{date.toDateString().slice(4)}</div>
     </div>
     <div class="card-title">
-        <a href={`wrongwarp/${link}`}>
+        <a href={`${link}`}>
             {title}
         </a>
     </div>
