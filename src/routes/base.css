@@ -2,11 +2,21 @@
     /* Colors -- https://coolors.co/5a7d7c-dadff7-232c33-a0c1d1-b5b2c2 */
     --clr-primary: #DADFF7;
     --clr-secondary: #5A7D7C;
+    --clr-secondary-1: rgba(63,88,87,1);
     --clr-background: #232C33;
     --clr-accent: #A0C1D1;
     --clr-muted: #B5B2C2;
 
     /* Sizes */
+    --s8: 8px;
+    --s16: 16px;
+    --s24: 24px;
+    --s32: 32px;
+    --s48: 48px;
+    --s64: 64px;
+    --s128: 128px;
+
+    /*
     --tiny: 8px;
     --small: 16px;
     --medium: 32px;
@@ -17,9 +27,17 @@
     --medium-text: 24px;
     --large-text: 32px;
     --huge-text: 48px;
+    */
 
-    --default-indent: calc(var(--small-text) * 2);
+    --default-indent: calc(var(--s16) * 2);
 
     /* Times */
     --fast: 0.1s;
+
+    color: var(--clr-primary);
+}
+.unselectable {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }

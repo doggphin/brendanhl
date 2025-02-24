@@ -1,10 +1,11 @@
-<script>
-    const { text, spaceBottom = true } = $props();
+<script lang="ts">
+    import type { Snippet } from "svelte";
+    const { spaceBottom = true, children } : { spaceBottom? : boolean, children : Snippet } = $props();
 </script>
 
 
 <div class={`${spaceBottom ? "space-bottom" : ""}`}>
-    {text}
+    {@render children()}
 </div>
 
 
@@ -15,6 +16,6 @@
         line-height: 1.3;
     }
     .space-bottom {
-        margin-bottom: var(--small);
+        margin-bottom: var(--s16);
     }
 </style>

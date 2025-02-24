@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { CardInfo } from "./CardInfo.ts";
+    import type { CardInfo } from "./card_info.ts";
     const { title, image, link, description, date } : CardInfo = $props();
 </script>
 
@@ -23,16 +23,16 @@
 <style>
     article {
         color: var(--clr-primary);
-        width: calc(var(--big) * 3);
-        height: calc(var(--big) * 2.25);
+        width: calc(var(--s128) * 3);
+        height: calc(var(--s128) * 2.25);
         background-color: var(--clr-secondary);
-        border-radius: var(--tiny);
+        border-radius: var(--s8);
         display: flex;
         flex-direction: column;
     }
     .thumbnail {
         position: relative;
-        height: calc(var(--big) * 1.25);
+        height: calc(var(--s128) * 1.25);
         width: 100%;
         position: relative;
     }
@@ -40,21 +40,21 @@
         position: absolute;
         bottom: 0;
         right: 0;
-        padding: var(--tiny);
+        padding: var(--s8);
         font-size: var(--small-text);
     }
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: var(--tiny) var(--tiny) 0 0;
+        border-radius: var(--s8) var(--s8) 0 0;
         display: block;
     }
     .card-title {
         font-size: var(--medium-text);
         background-color: var(--clr-accent);
-        padding: var(--tiny);
-        padding-left: var(--small);
+        padding: var(--s8);
+        padding-left: var(--s16);
         height: 25px;
     }
     .card-title a {
@@ -70,8 +70,8 @@
         height: 100%;
     }
     span {
-        padding: var(--tiny) var(--small) ;
+        padding: var(--s8) var(--s16) ;
         display: block;
-        text-indent: calc(var(--small-text) * 2);
+        text-indent: calc(var(--s16) * 2);
     }
 </style>

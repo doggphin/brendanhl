@@ -1,5 +1,5 @@
-<script>
-    const { link, title = "", spaceBottom = true } = $props();
+<script lang="ts">
+    const { link, title = "", spaceBottom = true } : { link : string, title? : string, spaceBottom? : boolean } = $props();
 </script>
 
 
@@ -14,13 +14,13 @@
 <style>
     .container {
         width: 100%;
-        margin: var(--medium) 0;
+        margin: var(--s32) 0 0;
     }
 
     .title {
         color: var(--clr-primary);
         text-align: center;
-        margin-bottom: var(--tiny);
+        margin-bottom: var(--s8);
         font-style: italic;
     }
     .video-container {
@@ -29,6 +29,6 @@
         justify-content: center;
     }
     .space-bottom {
-        margin-bottom: var(--small);
+        margin-bottom: var(--s32);
     }
 </style>
