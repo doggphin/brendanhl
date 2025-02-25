@@ -29,6 +29,8 @@
         { image: GithubIcon, link: "http://github.com/doggphin", alt: "GitHub" },
         { image: YoutubeIcon, link: "https://youtube.com/@doggphin", alt: "YouTube" },
     ];
+
+    const { children } = $props();
 </script>
 
 <Modals>
@@ -71,14 +73,15 @@
 <div class="navbar-bottom-line"></div>
 <div class="spacer"></div>
 <div class="body">
-    <slot/>
+    {@render children()}
 </div>
-<div style="position: fixed; left: var(--s16); top: 0; bottom: 0; transform: rotate(-2deg)">
-    <ScrollingText/>
-</div>
-<div style="position: fixed; right: var(--s16); top: 0; bottom: 0; transform: rotate(2deg)">
-    <ScrollingText/>
-</div>
+{#snippet textScroller(side : string)}
+    <div class="text-scroller" style={`${side == "left" ? "left" : "right"}: var(--s16); transform: rotate(${side == "left" ? "-2" : "2"}deg)`}>
+        <ScrollingText/>
+    </div>
+{/snippet}
+{@render textScroller("left")}
+{@render textScroller("right")}
 
 
 <style>
@@ -86,6 +89,12 @@
         background-color: var(--clr-background);
         --navbar-height: 105px;
         --navbar-bottom-line-height: var(--s4);
+    }
+    .text-scroller {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
     }
     .backdrop {
         background-color: rgba(0, 0, 0, 0.5);
