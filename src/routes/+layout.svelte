@@ -13,7 +13,7 @@
 
     let pageTitle = $state("Brendan Lancaster");
 
-    let RANDOM_TITLES = [
+    const RANDOM_TITLES = ld.shuffle([
         "Hi hello",
         "hi hi hello :)))",
         "welcom 2 my site",
@@ -24,8 +24,7 @@
         "behind you",
         "can u see this",
         "whattup",
-    ];
-    RANDOM_TITLES = ld.shuffle(RANDOM_TITLES);
+    ]);
     const WPM = 140;
     const SECONDS_PER_CHARACTER = (60 / WPM) / 5;
 
