@@ -1,17 +1,36 @@
 <script lang="ts">
-    import type { CardInfo } from "$lib/components/blog/card_info";
-    import Card from "$lib/components/blog/Card.svelte";
+    import { Card } from "$lib/components/blog/card.ts"
+    import BlogCard from "$lib/components/blog/BlogCard.svelte";
 
-    const cards : CardInfo[] = [
-        { title: "Devlog 1", image: "/images/wrongwarp/02-08-2025/thumb.png", link: "02-08-2024", 
-        description: "An introduction to my game Wrong Warp! What it's about, its current state, and my future plans for it. And a long ass walkthrough of its netcode :)", date: new Date(2025, 1, 8) },
-    ];
+    const datesToDescriptions : Map<Date, string> = new Map([
+        [new Date(2025, 2, 25), "Chunk rewrite, inventories, chat, and a couple other things"],
+        [new Date(2025, 2, 8), "An introduction to my game Wrong Warp! What it's about, its current state, and my future plans for it. And a long ass walkthrough of its netcode :)"],
+    ]);
+
+    const cards : Card[] = Array.from(datesToDescriptions, ([date, description], i) => {
+        const dateString = `${(date.getMonth()).toString().padStart(2, "0")}-` +
+                            `${date.getDate().toString().padStart(2, "0")}-` +
+                            `${date.getFullYear().toString()}`;
+
+        
+        const ret = new Card(
+            `Devlog ${datesToDescriptions.size - i}`,
+            `/images/wrongwarp/${dateString}/thumb.png`,
+            `/wrongwarp/posts/${dateString}`,
+            description,
+            date
+        );
+
+        console.log(ret.image);
+Card
+        return ret;
+    });
 </script>
 
 
 <div class="cardholder">
     {#each cards as card}
-        <Card title={card.title} image={card.image} link={`wrongwarp/posts/${card.link}`} description={card.description} date={card.date}/>
+        <BlogCard card = {card}/>
     {/each}
 </div>
 

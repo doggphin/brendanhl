@@ -1,21 +1,21 @@
 <script lang="ts">
-    import type { CardInfo } from "./card_info.ts";
-    const { title, image, link, description, date } : CardInfo = $props();
+    import { Card } from "./card.ts";
+    const { card } : { card : Card} = $props();
 </script>
 
 
 <article class="double-border">
     <div class="thumbnail">
-        <img src={image} alt={title}>
-        <div class="date">{date.toDateString().slice(4)}</div>
+        <img src={card.image} alt={card.title}>
+        <div class="date">{card.date.toDateString().slice(4)}</div>
     </div>
     <div class="card-title">
-        <a href={`${link}`}>
-            {title}
+        <a href={`${card.link}`}>
+            {card.title}
         </a>
     </div>
     <div class="description">
-        <span>{description}</span>
+        <span>{card.description}</span>
     </div>
 </article>
 
