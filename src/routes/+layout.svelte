@@ -174,7 +174,7 @@
     }
 
     .spacer {
-        width: 100vw;
+        width: 100%;
         height: calc(var(--navbar-height) + var(--navbar-bottom-line-height));
     }
 </style>

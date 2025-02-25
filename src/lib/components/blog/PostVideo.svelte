@@ -13,8 +13,7 @@
 
 <style>
     .container {
-        width: 100%;
-        margin: var(--s32) 0 0;
+        margin: var(--s32) 0 0 0;
     }
 
     .title {
@@ -25,7 +24,6 @@
     }
 
     .video-container {
-        width: 100%;
         display: flex;
         justify-content: center;
         position: relative;

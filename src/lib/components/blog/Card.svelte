@@ -49,7 +49,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: var(--s8) var(--s8) 0 0;
+        border-radius: var(--s4) var(--s4) 0 0;
         display: block;
     }
     .card-title {
