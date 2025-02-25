@@ -11,6 +11,8 @@
     const gibberishText: string = Array.from({ length: GIBBERISH_TEXT_LENGTH }, getRandomChineseChar).join('');
 </script>
 
+
+
 {#snippet gibberishColumn()}
     <div class="section">
         <p>
@@ -27,9 +29,11 @@
     </div>
 </div>
 
+
+
 <style>
     :root {
-        --char-height: var(--s64); /* Adjust if necessary */
+        --char-height: var(--s128); /* Adjust if necessary */
         --num-chars: 100;
         --section-height: calc(var(--char-height) * var(--num-chars));
     }
@@ -50,7 +54,7 @@
     .scroller-content {
         position: absolute;
         width: 100%;
-        animation: scroll 10s linear infinite;
+        animation: scroll calc(128s / 6) linear infinite;
     }
     /* Each text block has height as needed to contain the text */
     .section {

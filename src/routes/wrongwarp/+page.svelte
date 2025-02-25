@@ -4,7 +4,7 @@
 
     const cards : CardInfo[] = [
         { title: "Devlog 1", image: "/images/wrongwarp/01-08-2025/thumb.png", link: "01-08-2024", 
-        description: "An introduction to my game Wrong Warp; what it's about, its current state (including how I wrote its netcode), and my future plans for it. ", date: new Date(2025, 1, 8) },
+        description: "An introduction to my game Wrong Warp! What it's about, its current state, and my future plans for it. And a long ass walkthrough of its netcode :)", date: new Date(2025, 1, 8) },
     ];
 </script>
 

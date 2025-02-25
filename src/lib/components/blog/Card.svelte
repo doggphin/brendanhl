@@ -4,7 +4,7 @@
 </script>
 
 
-<article>
+<article class="double-border">
     <div class="thumbnail">
         <img src={image} alt={title}>
         <div class="date">{date.toDateString().slice(4)}</div>
@@ -29,10 +29,12 @@
         border-radius: var(--s8);
         display: flex;
         flex-direction: column;
+        border-color: var(--clr-secondary-darker);
     }
     .thumbnail {
         position: relative;
         height: calc(var(--s128) * 1.25);
+        border-radius: var(--s8);
         width: 100%;
         position: relative;
     }

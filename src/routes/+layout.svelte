@@ -73,14 +73,12 @@
 <div class="body">
     <slot/>
 </div>
-<!--
-<div style="position: fixed; left: 0; top: 0; bottom: 0;">
+<div style="position: fixed; left: var(--s16); top: 0; bottom: 0; transform: rotate(-2deg)">
     <ScrollingText/>
 </div>
-<div style="position: fixed; right: 0; top: 0; bottom: 0;">
+<div style="position: fixed; right: var(--s16); top: 0; bottom: 0; transform: rotate(2deg)">
     <ScrollingText/>
 </div>
--->
 
 
 <style>
