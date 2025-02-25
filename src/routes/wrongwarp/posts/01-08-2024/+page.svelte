@@ -80,16 +80,3 @@
         are unloaded, and later, will be saved in the backend's database to be retrieved once a player reenters its radius.
     </Paragraph>
 </Post>
-
-
-<style>
-    span {
-        display: inline-block;
-        color: var(--clr-primary);
-        text-indent: var(--default-indent);
-        line-height: 1.3;
-    }
-    .space-bottom {
-        margin-bottom: var(--s8);
-    }
-</style>

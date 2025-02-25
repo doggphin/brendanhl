@@ -6,6 +6,7 @@
     import GithubIcon from './layout/github-icon-color.svg';
     import LinkedinIcon from './layout/linkedin-icon-color.svg';
     import YoutubeIcon from './layout/youtube-color.svg';
+    import ScrollingText from '$lib/components/cool-stuff/ScrollingText.svelte';
 
     interface NavbarTab {
         name: string;
@@ -41,7 +42,7 @@
         />
     {/snippet}
 </Modals>
-<div class="navbar">
+<div class="double-border navbar">
     <div class="navbar-container">
         <div class="brand unselectable">
             <span>Brendan H. Lancaster</span>
@@ -67,16 +68,26 @@
         </nav>
     </div>
 </div>
+<div class="navbar-bottom-line"></div>
 <div class="spacer"></div>
 <div class="body">
     <slot/>
 </div>
+<!--
+<div style="position: fixed; left: 0; top: 0; bottom: 0;">
+    <ScrollingText/>
+</div>
+<div style="position: fixed; right: 0; top: 0; bottom: 0;">
+    <ScrollingText/>
+</div>
+-->
 
 
 <style>
     :root {
         background-color: var(--clr-background);
         --navbar-height: 105px;
+        --navbar-bottom-line-height: var(--s4);
     }
     .backdrop {
         background-color: rgba(0, 0, 0, 0.5);
@@ -88,13 +99,21 @@
         position: fixed;
         inset: 0 0 auto 0;
         height: var(--navbar-height);
-        background: rgb(63,88,87);
-        background: radial-gradient(circle, rgba(90,125,124,1) 0%, rgba(63,88,87,1) 100%);
+        background: var(--clr-secondary-darker);
+        background: radial-gradient(circle, var(--clr-secondary) 0%, var(--clr-secondary-darker) 100%);
         display: flex;
         justify-content: center;
+        z-index: 1;
+        border-color: var(--clr-secondary-darker);
+        border-width: 0 0 var(--s4) 0;
     }
     .navbar-container {
         width: max(500px, 50%);
+    }
+    @media only screen and (max-width: 500px) {
+        .navbar-container {
+            width: 90%;
+        }
     }
     .brand {
         color: var(--clr-primary);
@@ -113,14 +132,14 @@
         margin: auto auto auto calc(var(--s32) - var(--s8));
     }
     .navbar-page {
-        transition-duration: var(--fast);
+        transition-duration: var(--t2);
         color: var(--clr-primary);
         text-decoration-line: none;
         padding: var(--s8);
         border-radius: var(--s8);
     }
     .navbar-page:hover {
-        transition-duration: var(--fast);
+        transition-duration: var(--t2);
         background-color: var(--clr-muted);
     }
     .navbar-page-selected {
@@ -149,6 +168,6 @@
 
     .spacer {
         width: 100vw;
-        height: var(--navbar-height);
+        height: calc(var(--navbar-height) + var(--navbar-bottom-line-height));
     }
 </style>

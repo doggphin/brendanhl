@@ -58,7 +58,7 @@
         height: 25px;
     }
     .card-title a {
-        color: var(--clr-background);
+        color: var(--clr-primary);
         text-decoration: none;
         font-style: none;
     }

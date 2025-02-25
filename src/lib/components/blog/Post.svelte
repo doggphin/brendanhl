@@ -4,7 +4,7 @@
 </script>
 
 
-<div class="container">
+<div class="container double-border">
     {#if title}
         <div class="title">
             <h1>{title}</h1>
@@ -22,15 +22,6 @@
 
 
 <style>
-    .container {
-        color: var(--clr-primary);
-        display: block;
-        background-color: var(--clr-secondary);
-        width: min(800px, max(80vw, calc(100% - calc(var(--s64) * 4))));
-        margin: var(--s32) auto;
-        border-radius: var(--s8);
-        padding: var(--s32);
-    }
     .title {
         text-align: center;
         font-size: var(--s48);
@@ -42,5 +33,18 @@
     .contents {
         margin-top: var(--s32);
     }
-
+    .container {
+        position: relative;
+        color: var(--clr-primary);
+        display: block;
+        background-color: var(--clr-secondary);
+        width: 100%;
+        max-width: 800px;  /* Prevents exceeding 800px */
+        min-width: 0; /* Makes sure it doesn't go below 0 */
+        border-radius: var(--s8);
+        padding: var(--s32);
+        border-color: var(--clr-secondary-darker);
+        margin: var(--s32) auto;
+        box-sizing: border-box;
+    }
 </style>

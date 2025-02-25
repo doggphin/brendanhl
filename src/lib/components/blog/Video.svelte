@@ -23,11 +23,24 @@
         margin-bottom: var(--s8);
         font-style: italic;
     }
+
     .video-container {
         width: 100%;
         display: flex;
         justify-content: center;
+        position: relative;
+        padding-top: 56.25%; /* Maintain 16:9 aspect ratio */
     }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
     .space-bottom {
         margin-bottom: var(--s32);
     }
