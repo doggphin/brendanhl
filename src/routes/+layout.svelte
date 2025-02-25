@@ -18,12 +18,14 @@
         "hi hi hello :)))",
         "welcom 2 my site",
         "i'm in your computer...",
-        "anyone else online??",
+        "anyone there??",
         "sub 2 my youtube",
         "you should shower",
         "behind you",
         "can u see this",
         "whattup",
+        "respond plz",
+        "can u speak",
     ]);
     const WPM = 140;
     const SECONDS_PER_CHARACTER = (60 / WPM) / 5;
