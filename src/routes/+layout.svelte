@@ -7,6 +7,62 @@
     import LinkedinIcon from './layout/linkedin-icon-color.svg';
     import YoutubeIcon from './layout/youtube-color.svg';
     import ScrollingText from '$lib/components/cool-stuff/ScrollingText.svelte';
+    import ld from "lodash";
+    
+    const DEFAULT_TITLE = "Brendan Lancaster";
+
+    let pageTitle = $state("Brendan Lancaster");
+
+    let RANDOM_TITLES = [
+        "Hi hello",
+        "hi hi hello :)))",
+        "welcom 2 my site",
+        "i'm in your computer...",
+        "anyone else online??",
+        "sub 2 my youtube",
+        "you should shower",
+        "behind you",
+        "can u see this",
+        "whattup",
+    ];
+    RANDOM_TITLES = ld.shuffle(RANDOM_TITLES);
+    const WPM = 140;
+    const SECONDS_PER_CHARACTER = (60 / WPM) / 5;
+
+    const randomFloat = (x : number, y : number) => Math.random() * (y - x) + x;
+    const waitForSeconds = async(time : number) => await new Promise(r => setTimeout(r, time * 1000));
+
+    async function typeNewTitle(newTitle : string) {
+        pageTitle = "";
+        for(var character of newTitle) {
+            pageTitle += character;
+            await waitForSeconds(SECONDS_PER_CHARACTER * randomFloat(0.5, 1.5));
+        }
+    }
+    async function clearTitle() {
+        pageTitle = pageTitle.slice(0, -1);
+        await waitForSeconds(0.45);
+        while(pageTitle.length > 0) {
+            await waitForSeconds(0.04);
+            pageTitle = pageTitle.slice(0, -1);
+        }
+        pageTitle = "|";
+    }
+    let randomTitleIndex = 0;
+    async function setFunnyTitles() {
+        await waitForSeconds(randomFloat(3, 10));
+        await clearTitle();
+        await waitForSeconds(randomFloat(1, 3));
+        await typeNewTitle(RANDOM_TITLES[randomTitleIndex]);
+        randomTitleIndex = (randomTitleIndex + 1) % RANDOM_TITLES.length;
+        await waitForSeconds(randomFloat(3, 10));
+        await clearTitle();
+        await waitForSeconds(randomFloat(1, 2));
+        await typeNewTitle(DEFAULT_TITLE);
+        setFunnyTitles();
+    }
+    setFunnyTitles();
+
 
     interface NavbarTab {
         name: string;
@@ -33,6 +89,10 @@
     const { children } = $props();
 </script>
 
+
+<svelte:head>
+    <title>{pageTitle}</title>
+</svelte:head>
 <Modals>
     <!-- svelte-ignore element_invalid_self_closing_tag -->
     {#snippet backdrop({close})}
