@@ -11,8 +11,6 @@
     const gibberishText: string = Array.from({ length: GIBBERISH_TEXT_LENGTH }, getRandomChineseChar).join('');
 </script>
 
-
-
 {#snippet gibberishColumn()}
     <div class="section">
         <p>
@@ -22,6 +20,9 @@
         </p>
     </div>
 {/snippet}
+
+
+
 <div class="scroller">
     <div class="scroller-content">
         {@render gibberishColumn()}

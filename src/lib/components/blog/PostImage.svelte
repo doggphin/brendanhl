@@ -15,7 +15,7 @@
 <div class = {`container ${spaceBottom ? "space-bottom" : ""}`}>
     <div class="title">{title}</div>
     <button class="image-container" onclick={handleClick}>
-        <img class="main-image" style={`${height ? `height: ${height}px` : ""}`} 
+        <img class="main-image" 
         src={image} alt={title}>
     </button>
 </div>
@@ -42,7 +42,8 @@
     }
     .main-image {
         object-fit: contain;
-        width: 100%;
+        max-height: auto;
+        max-width: 100%;
         cursor: pointer;
     }
     .space-bottom {

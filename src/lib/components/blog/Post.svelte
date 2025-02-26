@@ -47,4 +47,11 @@
         margin: var(--s32) auto;
         box-sizing: border-box;
     }
+    @media only screen and (max-width: 800px) {
+        .container {
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+        }
+    }
 </style>

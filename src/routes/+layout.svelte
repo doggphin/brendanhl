@@ -136,13 +136,13 @@
 <div class="body">
     {@render children()}
 </div>
-{#snippet textScroller(side : string)}
-    <div class="text-scroller" style={`${side == "left" ? "left" : "right"}: var(--s16); transform: rotate(${side == "left" ? "-2" : "2"}deg)`}>
+{#snippet textScroller(scrollerType : string)}
+    <div class="{`text-scroller ${scrollerType}`}">
         <ScrollingText/>
     </div>
 {/snippet}
-{@render textScroller("left")}
-{@render textScroller("right")}
+{@render textScroller("scroller-left")}
+{@render textScroller("scroller-right")}
 
 
 <style>
@@ -150,12 +150,6 @@
         background-color: var(--clr-background);
         --navbar-height: 105px;
         --navbar-bottom-line-height: var(--s4);
-    }
-    .text-scroller {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        z-index: -1;
     }
     .backdrop {
         background-color: rgba(0, 0, 0, 0.5);
@@ -177,11 +171,6 @@
     }
     .navbar-container {
         width: max(500px, 50%);
-    }
-    @media only screen and (max-width: 500px) {
-        .navbar-container {
-            width: 90%;
-        }
     }
     .brand {
         color: var(--clr-primary);
@@ -221,6 +210,7 @@
 
     .navbar-medias {
         display: flex;
+        justify-content: right;
         margin: auto var(--s32) auto auto;
         gap: var(--s8);
     }
@@ -237,5 +227,66 @@
     .spacer {
         width: 100%;
         height: calc(var(--navbar-height) + var(--navbar-bottom-line-height));
+    }
+
+    .text-scroller {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        transition-duration: 1s;
+    }
+
+    .scroller-left {
+        left: var(--s16);
+        transform: rotate(-3deg);
+    }
+    .scroller-right {
+        right: var(--s16);
+        transform: rotate(3deg);
+    }
+
+    @media only screen and (max-width: 500px) {
+        .brand {
+            color: var(--clr-primary);
+            margin: var(--s8) auto 0 auto;
+            font-size: var(--s24);
+            text-align: center;
+        }
+        .navbar-container {
+            width: 90%;
+        }
+        .navbar-items-container {
+            height: var(--s48);
+        }
+        :root {
+            --navbar-height: 80px;
+        }
+        .navbar-pages {
+            display: flex;
+            justify-content: left;
+            gap: 0;
+            margin: auto 0 auto 0;
+        }
+        .navbar-page {
+            width: 50;
+        }
+        .navbar-medias {
+            display: flex;
+            margin: auto 0 auto auto;
+            gap: var(--s4);
+        }
+        .navbar-media-choice {
+            width: var(--s24);
+            height: var(--s24);
+        }
+        .scroller-left {
+            left: var(--s8);
+            transform: none;
+        }
+        .scroller-right {
+            right: var(--s8);
+            transform: none;
+        }
     }
 </style>

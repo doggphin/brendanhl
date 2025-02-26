@@ -4,24 +4,22 @@
 </script>
 
 
-<article class="double-border">
+<a href={`${card.link}`} class="double-border">
     <div class="thumbnail">
         <img src={card.image} alt={card.title}>
         <div class="date">{card.date.toDateString().slice(4)}</div>
     </div>
     <div class="card-title">
-        <a href={`${card.link}`}>
-            {card.title}
-        </a>
+        {card.title}
     </div>
     <div class="description">
-        <span>{card.description}</span>
+        {card.description}
     </div>
-</article>
+</a>
 
 
 <style>
-    article {
+    a {
         color: var(--clr-primary);
         width: calc(var(--s128) * 3);
         height: calc(var(--s128) * 2.25);
@@ -30,6 +28,9 @@
         display: flex;
         flex-direction: column;
         border-color: var(--clr-secondary-darker);
+        color: var(--clr-primary);
+        text-decoration: none;
+        font-style: none;
     }
     .thumbnail {
         position: relative;
@@ -44,6 +45,7 @@
         right: 0;
         padding: var(--s8);
         font-size: var(--small-text);
+        text-shadow: 1px 1px var(--clr-secondary);
     }
     img {
         width: 100%;
@@ -58,11 +60,7 @@
         padding: var(--s8);
         padding-left: var(--s16);
         height: 25px;
-    }
-    .card-title a {
-        color: var(--clr-primary);
-        text-decoration: none;
-        font-style: none;
+        text-shadow: 1px 1px var(--clr-secondary);
     }
     .description {
         align-content: center;
@@ -71,7 +69,7 @@
         justify-content: center;
         height: 100%;
     }
-    span {
+    .description {
         padding: var(--s8) var(--s16) ;
         display: block;
         text-indent: calc(var(--s16) * 2);

@@ -3,11 +3,14 @@
 </script>
 
 
-<div class="container">
-    <div class="title">{title}</div>
-    <div class={`video-container ${spaceBottom ? "space-bottom" : ""}`}>
-        <iframe width="560" height="315" src={link} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
+<div class="container" style="{spaceBottom ? "margin-bottom: var(--s32)" : ""}">
+    {#if title}
+        <div class="title">{title}</div>
+    {/if}
+    <video controls>
+        <source src={link} type="video/mp4"/>
+        <track kind="captions">
+    </video>
 </div>
 
 
@@ -23,23 +26,9 @@
         font-style: italic;
     }
 
-    .video-container {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        padding-top: 56.25%; /* Maintain 16:9 aspect ratio */
-    }
-
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
+    video {
+        display: block;
+        margin: 0 auto;
         width: 100%;
-        height: 100%;
-        border: 0;
-    }
-
-    .space-bottom {
-        margin-bottom: var(--s32);
     }
 </style>
