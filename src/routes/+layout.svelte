@@ -3,16 +3,39 @@
     import './base.css';
     import { Modals } from 'svelte-modals';
     import { page } from '$app/state';
+    import CatCube from '$lib/components/cool-stuff/cat-cube/CatCube.svelte';
     import GithubIcon from './layout/github-icon-color.svg';
     import LinkedinIcon from './layout/linkedin-icon-color.svg';
     import YoutubeIcon from './layout/youtube-color.svg';
     import ScrollingText from '$lib/components/cool-stuff/ScrollingText.svelte';
     import ld from "lodash";
     
+    interface NavbarTab {
+        name: string;
+        link: string;
+    };
+    const navbarTabs : NavbarTab[] = [
+        { name: "Projects", link: "/projects" },
+        { name: "Wrong Warp", link: "/wrongwarp" },
+        { name: "About", link: "/about" },
+        { name: "Contact", link: "/contact" },
+    ];
+
+
+    interface NavbarMedia {
+        image: string;
+        link: string;
+        alt: string;
+    };
+    const navbarMedias : NavbarMedia[] = [
+        { image: LinkedinIcon, link: "https://www.linkedin.com/in/brendan-lancaster/", alt: "LinkedIn" },
+        { image: GithubIcon, link: "http://github.com/doggphin", alt: "GitHub" },
+        { image: YoutubeIcon, link: "https://youtube.com/@doggphin", alt: "YouTube" },
+    ];
+
+
     const DEFAULT_TITLE = "Brendan Lancaster";
-
     let pageTitle = $state("Brendan Lancaster");
-
     const RANDOM_TITLES = ld.shuffle([
         "Hi hello",
         "hi hi hello :)))",
@@ -63,29 +86,6 @@
         setFunnyTitles();
     }
     setFunnyTitles();
-
-
-    interface NavbarTab {
-        name: string;
-        link: string;
-    };
-    const navbarTabs : NavbarTab[] = [
-        { name: "Projects", link: "/projects" },
-        { name: "Wrong Warp", link: "/wrongwarp" },
-        { name: "About", link: "/about" },
-        { name: "Contact", link: "/contact" },
-    ];
-
-    interface NavbarMedia {
-        image: string;
-        link: string;
-        alt: string;
-    };
-    const navbarMedias : NavbarMedia[] = [
-        { image: LinkedinIcon, link: "https://www.linkedin.com/in/brendan-lancaster/", alt: "LinkedIn" },
-        { image: GithubIcon, link: "http://github.com/doggphin", alt: "GitHub" },
-        { image: YoutubeIcon, link: "https://youtube.com/@doggphin", alt: "YouTube" },
-    ];
 
     const { children } = $props();
 </script>
@@ -143,6 +143,8 @@
 {/snippet}
 {@render textScroller("scroller-left")}
 {@render textScroller("scroller-right")}
+<CatCube size={256}/>
+
 
 
 <style>
