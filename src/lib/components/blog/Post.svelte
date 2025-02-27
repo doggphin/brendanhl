@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { Snippet } from "svelte";
-    const { title, date, children } : { title : string, date : string, children : Snippet } = $props();
+    const { title = null, date = null, children } : { title? : string | null, date? : string | null, children : Snippet } = $props();
 </script>
 
 
@@ -15,6 +15,9 @@
             <h2>{date}</h2>
         </span>
     {/if}
+    {#if title || date}
+        <div class="spacer"></div>
+    {/if}
     <div class="contents">
         {@render children()}
     </div>
@@ -22,6 +25,9 @@
 
 
 <style>
+    .spacer {
+        height: var(--s32);
+    }
     .title {
         text-align: center;
         font-size: var(--s48);
@@ -29,9 +35,6 @@
     }
     .date {
         text-align: center;
-    }
-    .contents {
-        margin-top: var(--s32);
     }
     .container {
         position: relative;

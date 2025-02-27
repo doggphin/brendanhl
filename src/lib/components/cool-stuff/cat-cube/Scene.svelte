@@ -5,15 +5,16 @@
     const texture = $state(new TextureLoader().load('/favicon.png'));
     let rotX = $state(0);
     let rotY = $state(0);
-    let rotZ = $state(0);
     useTask((delta) => {
-        rotX += 1 * delta;
-        rotY += 3 * delta;
-        rotZ += 5 * delta;
+        rotX += rotXSpeed * delta;
+        rotY += rotYSpeed * delta;
     });
+
+    const { color, rotXSpeed, rotYSpeed } : 
+    { color : string, rotXSpeed : number, rotYSpeed : number } = $props();
 </script>
 
-<T.Mesh rotation={[rotX, rotY, rotZ]} scale={[3.55, 3.55, 3.55]}>
+<T.Mesh rotation={[rotX, rotY, 0]} scale={[3.55, 3.55, 3.55]}>
     <T.BoxGeometry/>
-    <T.MeshBasicMaterial map={texture}/>
+    <T.MeshBasicMaterial map={texture} color={color}/>
 </T.Mesh>

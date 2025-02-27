@@ -1,21 +1,21 @@
 <script lang="ts">
-    const START_CHINESE_CHARACTERS = 0x4e00; // Unicode for '一'
-    const END_CHINESE_CHARACTERS = 0x9fff;   // Unicode for '龥'
+    const START_CHINESE_CHARACTERS = 0x4e00; // First chinese character
+    const END_CHINESE_CHARACTERS = 0x9fff;   // Last chinese character
 
-    function getRandomChineseChar(): string {
+    function getRandomChineseCharacter(): string {
         const randomCharCode = Math.floor(Math.random() * (END_CHINESE_CHARACTERS - START_CHINESE_CHARACTERS + 1)) + START_CHINESE_CHARACTERS;
         return String.fromCharCode(randomCharCode);
     }
 
     const GIBBERISH_TEXT_LENGTH = 100;
-    const gibberishText: string = Array.from({ length: GIBBERISH_TEXT_LENGTH }, getRandomChineseChar).join('');
+    const randomChineseCharacters: string[] = Array.from({ length: GIBBERISH_TEXT_LENGTH }, getRandomChineseCharacter);
 </script>
 
 {#snippet gibberishColumn()}
     <div class="section">
         <p>
-            {#each gibberishText.split('') as letter}
-                <span>{letter}</span>
+            {#each randomChineseCharacters as randomCharacter}
+                <span>{randomCharacter}</span>
             {/each}
         </p>
     </div>

@@ -3,5 +3,5 @@
 </script>
 
 <Post>
-    This is under construction! Come back later.
+    <div>This is under construction! Come back later.</div>
 </Post>
