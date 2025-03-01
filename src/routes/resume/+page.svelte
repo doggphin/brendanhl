@@ -1,5 +1,6 @@
 <script lang="ts">
     import Section from "./Section.svelte";
+    import NewTabLink from "./NewTabLink.svelte";
     import TimeWithBrand from "./TimeWithBrand.svelte";
     import Post from "$lib/components/blog/Post.svelte";
     import HandsomeMan from "$lib/images/resume/handsome-man.jpg";
@@ -120,7 +121,7 @@
                             - Heavy use of websockets to allow employees to collaborate on projects in real-time
                         </span>
                         <span class="subtext">
-                            - Showcasesmy initiative, full-cycle development skills by having transformed what started as a
+                            - Showcases my initiative, full-cycle development skills by having transformed what started as a
                             personal project into employment and finally a commercially used product
                         </span>
                     </TimeWithBrand>
@@ -160,6 +161,24 @@
                         {@render pinSnippet(title, icon)}
                     {/each}
                 </div>
+            </Section>
+        </div>
+        <div class="section-wrapper">
+            <Section title="Projects (wip)">
+                <ol class="projects-list">
+                    <li>
+                        this (2025) <NewTabLink link="https://github.com/doggphin/brendanhl" altText="This website's repo"/>
+                    </li>
+                    <li>
+                        geoengine (2024) <NewTabLink link="https://github.com/doggphin/geoengine" altText="Repo for GeoEngine"/>
+                    </li>
+                    <li>
+                        miniware (2025) <NewTabLink link="https://github.com/doggphin/miniware" altText="Repo for Miniware"/>
+                    </li>
+                    <li>
+                        x86 checkers (2022) <NewTabLink link="https://github.com/doggphin/x86-checkers" altText="Repo for x86 checkers"/>
+                    </li>
+                </ol>
             </Section>
         </div>
     </ol>
@@ -221,5 +240,9 @@
     }
     .time-with-brand-container >:not(:last-child) {
         margin-bottom: var(--s4); /* Adjust as needed */
+    }
+
+    .projects-list >:not(:last-child) {
+        margin-bottom: var(--s8);
     }
 </style>

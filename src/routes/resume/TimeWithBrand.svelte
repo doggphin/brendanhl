@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { Snippet } from "svelte";
-    import OpenInNewTabIcon from "$lib/icons/open_in_new_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
+    import NewTabLink from "./NewTabLink.svelte";
 
     interface Props {
         company : string,
@@ -24,9 +24,7 @@
             <li style="font-size: var(--s24);">
                 {company}
                 {#if link !== undefined}
-                    <button onclick={() => {window.open(link)}}>
-                        <img src={OpenInNewTabIcon} style="width: 100%; height: 100%;" alt={`Open link to ${company}`}/>
-                    </button>
+                    <NewTabLink link={link} altText={`Go to ${company}`}/>
                 {/if}
             </li>
             <li>
@@ -44,15 +42,6 @@
 
 
 <style>
-    button {
-        display: inline;
-        width: var(--s16);
-        height: var(--s16);
-        background-color: transparent;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-    }
     .container {
         width: 100%;
         margin: var(--s16) 0;
@@ -69,7 +58,6 @@
             white-space: nowrap;
         }
     }
-    
 
     .icon-container {
         width: var(--s64);
