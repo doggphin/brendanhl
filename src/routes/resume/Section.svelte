@@ -13,7 +13,6 @@
 
 <style>
     .container {
-        margin: var(--s16) 0;
         display: block;
     }
     .title {

@@ -147,7 +147,7 @@
 <style>
     :root {
         background-color: var(--clr-background);
-        font-family: 'Comic Sans MS', cursive;
+        font-family: 'Comic Sans MS';
         --navbar-height: 105px;
         --navbar-bottom-line-height: var(--s4);
     }

@@ -1,11 +1,10 @@
 <script lang="ts">
     import Section from "./Section.svelte";
+    import TimeWithBrand from "./TimeWithBrand.svelte";
     import Post from "$lib/components/blog/Post.svelte";
     import HandsomeMan from "$lib/images/resume/handsome-man.jpg";
 
     // import Icon from "$lib/images/resume/.svg";
-
-    import CuIcon from "$lib/images/resume/cu-boulder.png";
 
     import CSharpIcon from "$lib/images/resume/csharp.svg";
     import PythonIcon from "$lib/images/resume/python.svg";
@@ -33,6 +32,9 @@
     import PremiereIcon from "$lib/images/resume/premiere.png";
     import AuditionIcon from "$lib/images/resume/audition.png";
     import BlenderIcon from "$lib/images/resume/blender.svg";
+    
+    import CUIcon from "$lib/images/resume/cu-full.png";
+    import MemoryWiseIcon from "$lib/images/resume/memorywise-full.png";
 
     const createPinsMap = (entries : [string, string][]) => new Map<string, string>(entries);
 
@@ -79,40 +81,88 @@
 {/snippet}
 <Post>
     <img class="handsome-man double-border" src={HandsomeMan} alt="An extremely handsome person"/>
-    <div class="quote">"My nights are filled with commits, not dreams."</div>
-    <Section title="About">
-        <span class="section-text">     
-            Full-stack developer and senior CS student, graduating May 2025.
-            Experienced in web and game development. In love with networking and graphics.
-        </span>
-    </Section>
-    <Section title="Education">
-        wip
-    </Section>
-    <Section title="Experience">
-        wip
-    </Section>
-    <Section title="Frameworks & Libraries">
-        <div class="pins-container">
-            {#each Array.from(librariesAndFrameworksPins.entries()) as [title, icon]}
-                {@render pinSnippet(title, icon)}
-            {/each}
+    <div class="quote">"my nights are filled with commits, not dreams"</div>
+    <div class="attributed-to">- coping insomniac</div>
+    <ol class="sections-container">
+        <div class="section-wrapper">
+            <Section title="About">
+                <span class="section-text">     
+                    Full-stack developer and senior CS student, graduating May 2025.
+                    Experienced in web and game development and in love with networking and graphics.
+                </span>
+            </Section>
         </div>
-    </Section>
-    <Section title="Languages">
-        <div class="pins-container">
-            {#each Array.from(languagesPins.entries()) as [title, icon]}
-                {@render pinSnippet(title, icon)}
-            {/each}
+        <div class="section-wrapper">
+            <Section title="Education">
+                <ol class="time-with-brand-container">
+                    <TimeWithBrand company="CU Boulder" position="Bachelor of Science in Computer Science - 3.4 GPA" icon={CUIcon} time="Graduating May 2025">
+                        <span class="subtext">
+                            Notable classes include: Network Systems, Advanced Computer Graphics, Object-Oriented Programming, Operating Systems,
+                            Software Dev Methods & Tools, Database Systems, Robotics, Machine Learning, NLP, Computer Architecture, Algorithms
+                        </span>
+                    </TimeWithBrand>
+                </ol>
+            </Section>
         </div>
-    </Section>
-    <Section title="Other Technologies">
-        <div class="pins-container">
-            {#each Array.from(otherTechnologiesPins.entries()) as [title, icon]}
-                {@render pinSnippet(title, icon)}
-            {/each}
+        <div class="section-wrapper">
+            <Section title="Experience">
+                <ol class="time-with-brand-container">
+                    <TimeWithBrand company="MemoryWise" position="Full-Stack Developer" icon={MemoryWiseIcon} time="May 2024 - Current" link="https://memorywise.com/">
+                        <span class="subtext">
+                            - Developing a server network and webapp to move away from google sheets for project management
+                            using Django and Svelte, hosted on AWS EC2 + RDS (PostgreSQL) instances and across local servers
+                        </span>
+                        <span class="subtext">
+                            - Automating correction of scanned media for audio, image and video files, enforcement of file
+                            and project structure guidelines, and other time-consuming tasks
+                        </span>
+                        <span class="subtext">
+                            - Heavy use of websockets to allow employees to collaborate on projects in real-time
+                        </span>
+                        <span class="subtext">
+                            - Showcasesmy initiative, full-cycle development skills by having transformed what started as a
+                            personal project into employment and finally a commercially used product
+                        </span>
+                    </TimeWithBrand>
+                    <TimeWithBrand company="MemoryWise" position="Digitizing Assistant" icon={MemoryWiseIcon} time="May 2023 - May 2024" link="https://memorywise.com/">
+                        <span class="subtext">
+                            - Converted dated media from analogue to digital formats and restored them with Adobe Photoshop, Adobe Premiere,
+                            Adobe Audition and Audacity
+                        </span>
+                        <span class="subtext">
+                            - Used Excel to input and track clients, invoices and project progress
+                        </span>
+                    </TimeWithBrand>
+                </ol>
+            </Section>
         </div>
-    </Section>
+        <div class="section-wrapper"></div>
+        <Section title="Frameworks & Libraries">
+            <div class="pins-container">
+                {#each Array.from(librariesAndFrameworksPins.entries()) as [title, icon]}
+                    {@render pinSnippet(title, icon)}
+                {/each}
+            </div>
+        </Section>
+        <div class="section-wrapper">
+            <Section title="Languages">
+                <div class="pins-container">
+                    {#each Array.from(languagesPins.entries()) as [title, icon]}
+                        {@render pinSnippet(title, icon)}
+                    {/each}
+                </div>
+            </Section>
+        </div>
+        <div class="section-wrapper">
+            <Section title="Other Technologies">
+                <div class="pins-container">
+                    {#each Array.from(otherTechnologiesPins.entries()) as [title, icon]}
+                        {@render pinSnippet(title, icon)}
+                    {/each}
+                </div>
+            </Section>
+        </div>
+    </ol>
 </Post>
 
 
@@ -126,8 +176,15 @@
         
     }
     .quote {
-        margin: var(--s16) auto;
+        margin: var(--s32) auto 0 auto;
+        font-size: var(--s24);
         text-align: center;
+        font-family: 'Comic Sans MS', cursive;
+    }
+    .attributed-to {
+        margin: var(--s8) auto var(--s32) auto;
+        font-size: var(--s12);
+        width: fit-content;
     }
     .section-text {
         display: block;
@@ -152,5 +209,17 @@
         font-size: 15px;
         justify-content: center;
         align-items: center;
+    }
+
+    .subtext {
+        display: block;
+        font-size: var(--s12);
+    }
+
+    .sections-container >:not(:last-child) {
+        margin-bottom: var(--s32);
+    }
+    .time-with-brand-container >:not(:last-child) {
+        margin-bottom: var(--s4); /* Adjust as needed */
     }
 </style>

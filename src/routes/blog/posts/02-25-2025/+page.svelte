@@ -37,7 +37,7 @@ armor slots move around with their player as it spins in their inventory page.
 Items also have their own respective sound categories assigned to them that
 play when they get moved around or picked up.
     </PostParagraph>
-    <PostVideo title="Interactables, Items, Inventories, Sounds" link="/media/wrongwarp/02-25-2025/demo.mp4"/>
+    <PostVideo title="Interactables, Items, Inventories, Sounds" link="/media/blog/02-25-2025/demo.mp4"/>
     <PostParagraph>
 The chat system works by sending chat messages to all players within range of
 the sender. This plays a text-to-speechified clip of whatever they said using
@@ -46,7 +46,7 @@ omitting player names, and plan to replace the placeholder wizard face with a
 picture taken of the player model's head. I've also added admin commands to teleport around
 and spawn entities in and stuff.
     </PostParagraph>
-    <PostVideo title="Local Text-To-Speech Chat" link="/media/wrongwarp/02-25-2025/tts.mp4"/>
+    <PostVideo title="Local Text-To-Speech Chat" link="/media/blog/02-25-2025/tts.mp4"/>
     <PostParagraph>
 With this stuff out of the way, I think I'm gonna focus on the game loop next.
 I'll be adding a health system, equipping weapons,
