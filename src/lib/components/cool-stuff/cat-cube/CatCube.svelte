@@ -3,10 +3,9 @@
     import Scene from './Scene.svelte';
     import { onMount } from 'svelte';
     import ld from "lodash";
+    import { randomFloat, waitForSeconds } from "$lib/scripts/helpers.ts";
     
     const ENABLE_COLOR_CHANGES = true;
-    const waitForSeconds = async(time : number) => await new Promise(r => setTimeout(r, time * 1000));
-    const randomFloat = (x : number, y : number) => Math.random() * (y - x) + x;
 
     let SPEED = 256;
     let xSpeed = SPEED;

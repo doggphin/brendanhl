@@ -15,8 +15,8 @@
         
         const ret = new Card(
             `Devlog ${datesToDescriptions.size - i}`,
-            `/media/wrongwarp/${dateString}/thumb.png`,
-            `/wrongwarp/posts/${dateString}`,
+            `/media/blog/${dateString}/thumb.png`,
+            `/blog/posts/${dateString}`,
             description,
             date
         );

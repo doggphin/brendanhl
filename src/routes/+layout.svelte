@@ -9,6 +9,7 @@
     import YoutubeIcon from './layout/youtube-color.svg';
     import ScrollingText from '$lib/components/cool-stuff/ScrollingText.svelte';
     import ld from "lodash";
+    import { randomFloat, waitForSeconds } from "$lib/scripts/helpers.ts";
     
     interface NavbarTab {
         name: string;
@@ -16,9 +17,8 @@
     };
     const navbarTabs : NavbarTab[] = [
         { name: "Projects", link: "/projects" },
-        { name: "Wrong Warp", link: "/wrongwarp" },
-        { name: "About", link: "/about" },
-        { name: "Contact", link: "/contact" },
+        { name: "Blog", link: "/blog" },
+        { name: "Resume", link: "/resume" },
     ];
 
 
@@ -52,9 +52,6 @@
     ]);
     const WPM = 140;
     const SECONDS_PER_CHARACTER = (60 / WPM) / 5;
-
-    const randomFloat = (x : number, y : number) => Math.random() * (y - x) + x;
-    const waitForSeconds = async(time : number) => await new Promise(r => setTimeout(r, time * 1000));
 
     async function typeNewTitle(newTitle : string) {
         pageTitle = "";
@@ -121,7 +118,7 @@
             </ul>
             <ul class="navbar-medias">
                 {#each navbarMedias as navbarMedia}
-                    <li class="navbar-media-choice">
+                    <li class="navbar-media-choice unselectable">
                         <a href={navbarMedia.link}>
                             <img src={navbarMedia.image} alt={navbarMedia.alt}>
                         </a>
@@ -150,6 +147,7 @@
 <style>
     :root {
         background-color: var(--clr-background);
+        font-family: 'Comic Sans MS', cursive;
         --navbar-height: 105px;
         --navbar-bottom-line-height: var(--s4);
     }
@@ -172,7 +170,8 @@
         border-width: 0 0 var(--s4) 0;
     }
     .navbar-container {
-        width: max(500px, 50%);
+        width : 800px;
+        max-width: 100%;
     }
     .brand {
         color: var(--clr-primary);
@@ -196,14 +195,16 @@
         text-decoration-line: none;
         padding: var(--s8);
         border-radius: var(--s8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .navbar-page:hover {
         transition-duration: var(--t2);
         background-color: var(--clr-muted);
     }
     .navbar-page-selected {
-        color: var(--clr-muted);
-        text-decoration-line: underline;
+        background-color: var(--clr-muted);
         pointer-events: none;
     }
     .navbar-page-selected:hover {
@@ -267,7 +268,6 @@
         .navbar-pages {
             display: flex;
             justify-content: left;
-            gap: 0;
             margin: auto 0 auto 0;
         }
         .navbar-page {
@@ -276,11 +276,10 @@
         .navbar-medias {
             display: flex;
             margin: auto 0 auto auto;
-            gap: var(--s4);
         }
         .navbar-media-choice {
-            width: var(--s24);
-            height: var(--s24);
+            width: var(--s32);
+            height: var(--s32);
         }
         .scroller-left {
             left: var(--s8);
