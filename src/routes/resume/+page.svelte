@@ -208,11 +208,11 @@
             </Section>
         </div>
         <div class="section-wrapper">
-            <Section title="LeetCode Endured">
+            <Section title="Current Stats">
                 {#if data}
                     <ol class="projects-list">
                         <li>
-                            {data.completedStats[0].count} / {data.totalStats[0].count} questions completed <NewTabLink link="https://leetcode.com/u/brla5166/" altText="Hell"/>
+                            {data.completedStats[0].count} / {data.totalStats[0].count} questions completed
                         </li>
                         {#each data.completedStats.slice(1, 4) as stat}
                             {@const total = data.totalStats.find((s: { difficulty: string; }) => s.difficulty === stat.difficulty).count}
