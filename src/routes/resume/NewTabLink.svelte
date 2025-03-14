@@ -19,5 +19,6 @@
         border: none;
         padding: 0;
         cursor: pointer;
+        transform: translateY(3px);
     }
 </style>

@@ -18,6 +18,9 @@
     import JavaScriptIcon from "$lib/images/resume/javascript.svg";
     import HTMLIcon from "$lib/images/resume/html.svg";
     import CSSIcon from "$lib/images/resume/css.svg";
+    import AssemblyIcon from "$lib/images/resume/assembly.png";
+    import ScratchIcon from "$lib/images/resume/scratch.svg";
+    import RustIcon from "$lib/images/resume/rust.svg";
 
     import DjangoIcon from "$lib/images/resume/django.svg";
     import DotNetCoreIcon from "$lib/images/resume/dotnetcore.svg";
@@ -26,7 +29,7 @@
     import ReactIcon from "$lib/images/resume/react.svg";
     import UnityIcon from "$lib/images/resume/unity.svg";
     import OpenGLIcon from "$lib/images/resume/opengl.svg";
-    import OpenCVIcon from "$lib/images/resume/opencv.svg";
+    import SupabaseIcon from "$lib/images/resume/supabase.svg";
 
     import PostgresIcon from "$lib/images/resume/postgres.svg";
     import GitIcon from "$lib/images/resume/git.svg";
@@ -61,8 +64,8 @@
         [".NET", DotNetCoreIcon],
         ["Flask", FlaskIcon],
         ["React", ReactIcon],
+        ["Supabase", SupabaseIcon],
         ["OpenGL", OpenGLIcon],
-        ["OpenCV", OpenCVIcon]
     ]);
 
     const otherTechnologiesPins = new Map<string, string>([
@@ -76,17 +79,19 @@
     let { data } = $props();
 </script>
 
-
+{#snippet pinImageSnippet(icon : string)}
+    <img style="width: var(--s16);" src={icon} alt={"Pin"}/>
+{/snippet}
 {#snippet pinSnippet(title : string, icon : string)}
     <div class="pin-container double-border unselectable">
-        <img style="width: var(--s16);" src={icon} alt="title"/>
+        {@render pinImageSnippet(icon)}
         <div class="pin-title">{title}</div>
     </div>
 {/snippet}
 <Post>
     <img class="handsome-man double-border" src={HandsomeMan} alt="An extremely handsome person"/>
     <div class="quote">"my nights are filled with commits, not dreams"</div>
-    <div class="attributed-to">-insomniac with crippling programming addiction </div>
+    <div class="attributed-to">- competitive insomniac</div>
     <ol class="sections-container">
         <div class="section-wrapper">
             <Section title="About">
@@ -108,24 +113,21 @@
                 </ol>
             </Section>
         </div>
-        <div class="section-wrapper">
+        <div class="section-wrapper dotted-connector">
             <Section title="Experience">
                 <ol class="time-with-brand-container">
                     <TimeWithBrand company="MemoryWise" position="Full-Stack Developer" icon={MemoryWiseIcon} time="May 2024 - Current" link="https://memorywise.com/">
                         <span class="subtext">
-                            - Developing a server network and webapp to move away from google sheets for project management
-                            using Django and Svelte, hosted on AWS EC2 + RDS (PostgreSQL) instances and across local servers
+                            - Developing a web app that handles order creation, management and invoicing, and significantly automates the restoration
+                            process for digitized film, photos and audio.
                         </span>
                         <span class="subtext">
-                            - Automating correction of scanned media for audio, image and video files, enforcement of file
-                            and project structure guidelines, and other time-consuming tasks
+                            - Built with Django and SvelteKit, hosted on AWS EC2 and RDS (PostgreSQL), and deployed across multiple local servers. Projects
+                            are synchronized between users via WebSockets and can be exported as invoices to Xero’s accounting software.
                         </span>
                         <span class="subtext">
-                            - Heavy use of websockets to allow employees to collaborate on projects in real-time
-                        </span>
-                        <span class="subtext">
-                            - Showcases my initiative, full-cycle development skills by having transformed what started as a
-                            personal project into employment and finally a commercially used product
+                            - Demonstrates my initiative and full-cycle development skills, evolving from a personal project into employment and a
+                            commercially deployed product.
                         </span>
                     </TimeWithBrand>
                     <TimeWithBrand company="MemoryWise" position="Digitizing Assistant" icon={MemoryWiseIcon} time="May 2023 - May 2024" link="https://memorywise.com/">
@@ -167,25 +169,46 @@
             </Section>
         </div>
         <div class="section-wrapper">
-            <Section title="Projects (wip)">
-                <ol class="projects-list">
-                    <li>
-                        this (2025) <NewTabLink link="https://github.com/doggphin/brendanhl" altText="This website's repo"/>
-                    </li>
-                    <li>
-                        geoengine (2024) <NewTabLink link="https://github.com/doggphin/geoengine" altText="Repo for GeoEngine"/>
-                    </li>
-                    <li>
-                        miniware (2025) <NewTabLink link="https://github.com/doggphin/miniware" altText="Repo for Miniware"/>
-                    </li>
-                    <li>
-                        x86 checkers (2022) <NewTabLink link="https://github.com/doggphin/x86-checkers" altText="Repo for x86 checkers"/>
-                    </li>
+            <Section title="Projects">
+                {@const projects = [
+                    { name : "this website (2025 - current)", url : "https://github.com/doggphin/brendanhl", badges : [SvelteIcon, HTMLIcon, CSSIcon, TypeScriptIcon]},
+                    { name : "pc profit parts picker (24 hour hackathon) (2025)", url : "https://github.com/doggphin/pc-profit-picker-back", badges : [DjangoIcon, PythonIcon, ReactIcon, TypeScriptIcon]},
+                    { name : "miniware (2025 - current)", url : "https://github.com/doggphin/miniware", badges : [DjangoIcon, PythonIcon, SvelteIcon, HTMLIcon, CSSIcon, TypeScriptIcon]},
+                    { name : "clutch maps (backend) (2025 - current)", url : "https://www.clutchmaps.com/", badges : [SupabaseIcon, TypeScriptIcon]},
+                    { name : "wrong warp (2024 - current)", url : "http://localhost:5173/blog/posts/01-08-2025", badges : [UnityIcon, DotNetCoreIcon, CSharpIcon]},
+                    { name : "northrop grumman tracking & interception (team lead) (2024 - current)", url : "", badges : [UnityIcon, CSharpIcon, FlaskIcon, PythonIcon]},
+                    { name : "memoryware final checker (2024)", url : "https://github.com/doggphin/mw-worker/tree/main", badges : [RustIcon]},
+                    { name : "memoryware (2024 - current)", url : "https://github.com/doggphin/mw-front", badges : [DjangoIcon, PythonIcon, SvelteIcon, HTMLIcon, CSSIcon, JavaScriptIcon]},
+                    { name : "webgl models and shaders (2024)", url : "https://github.com/doggphin/webgl-models-shaders", badges : [OpenGLIcon, JavaScriptIcon]},
+                    { name : "geoengine (2023)", url : "https://github.com/doggphin/geoengine", badges : [OpenGLIcon, CPPIcon]},
+                    { name : "x86 checkers (2022)", url : "https://github.com/doggphin/x86-checkers",  badges : [AssemblyIcon]},
+                    { name : "old wrong warp (2021 - 2022)", url : "https://github.com/doggphin/wrongwarp-old", badges : [UnityIcon, CSharpIcon]},
+                    { name : "awesome game: fur real (2011)", url : "https://scratch.mit.edu/projects/1967888/", badges : [ScratchIcon]}
+                ]}
+                <ol style="margin-bottom: calc(var(--s8) * -1)">
+                    {#each projects as project}
+                        <li style="margin-bottom: var(--s8);">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    {project.name}
+                                    {#if project.url != ""}
+                                        <NewTabLink link={project.url} altText={project.name}/>
+                                    {/if}
+                                </div>
+                                <div style="flex-grow: 1; height: 2px; margin: 0 var(--s16); border-bottom: 3px dotted var(--clr-primary);"></div>
+                                <div class="pin-container double-border unselectable">
+                                    {#each project.badges as badge}
+                                        {@render pinImageSnippet(badge)}
+                                    {/each}
+                                </div>
+                            </div>
+                        </li>
+                    {/each}
                 </ol>
             </Section>
         </div>
         <div class="section-wrapper">
-            <Section title="Total LeetCode Endured">
+            <Section title="LeetCode Endured">
                 {#if data}
                     <ol class="projects-list">
                         <li>
