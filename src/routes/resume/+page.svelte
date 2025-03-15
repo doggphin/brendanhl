@@ -207,6 +207,7 @@
                 </ol>
             </Section>
         </div>
+        <!--
         <div class="section-wrapper">
             <Section title="Current Stats">
                 {#if data}
@@ -225,6 +226,7 @@
                 {/if}
             </Section>
         </div>
+        -->
     </ol>
 </Post>
 
