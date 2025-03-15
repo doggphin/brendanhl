@@ -91,7 +91,7 @@
 <Post>
     <img class="handsome-man double-border" src={HandsomeMan} alt="An extremely handsome person"/>
     <div class="quote">"my nights are filled with commits, not dreams"</div>
-    <div class="attributed-to">- competitive insomniac</div>
+    <div class="attributed-to"><!-- - competitive insomniac --></div>
     <ol class="sections-container">
         <div class="section-wrapper">
             <Section title="About">
