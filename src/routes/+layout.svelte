@@ -224,7 +224,7 @@
     .navbar-media-choice img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     .spacer {
@@ -269,6 +269,7 @@
             display: flex;
             justify-content: left;
             margin: auto 0 auto 0;
+            gap: var(--s4);
         }
         .navbar-page {
             width: 50;
@@ -288,6 +289,19 @@
         .scroller-right {
             right: var(--s8);
             transform: none;
+        }
+    }
+
+    @media only screen and (max-width: 380px) {
+        .navbar-pages {
+            gap: var(--s2);
+        }
+        .navbar-page {
+            padding: var(--s6);
+        }
+        .navbar-media-choice {
+            width: var(--s28);
+            height: var(--s28);
         }
     }
 </style>

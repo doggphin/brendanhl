@@ -207,26 +207,24 @@
                 </ol>
             </Section>
         </div>
-        <!--
         <div class="section-wrapper">
             <Section title="Current Stats">
                 {#if data}
                     <ol class="projects-list">
                         <li>
-                            {data.completedStats[0].count} / {data.totalStats[0].count} questions completed
+                            {data.completedStats[0].count} / {data.totalStats[0].count} LC questions completed
                         </li>
                         {#each data.completedStats.slice(1, 4) as stat}
-                            {@const total = data.totalStats.find((s: { difficulty: string; }) => s.difficulty === stat.difficulty).count}
+                            <!-- {@const total = data.totalStats.find((s: { difficulty: string; }) => s.difficulty === stat.difficulty).count} -->
                             {@const color = stat.difficulty === "All" ? "var(--clr-primary)" : stat.difficulty === "Easy" ? "green" : stat.difficulty === "Medium" ? "yellow" : "red"}
                             <li>
-                                {Math.ceil((stat.count / total) * 100)}% of all <span style={`color : ${color};`}>{stat.difficulty.toLowerCase()}</span> questions completed
+                                {stat.count} <span style={`color : ${color};`}>{stat.difficulty.toLowerCase()}</span> questions completed
                             </li>
                         {/each}
                     </ol>
                 {/if}
             </Section>
         </div>
-        -->
     </ol>
 </Post>
 
